@@ -1,0 +1,14 @@
+<?php if ($services->isAuthenticated('Twitter')) { ?>
+    <a href="/twitter" class="service">
+<?php } else { ?>
+    <a href="/authorize/twitter" class="service">
+<?php } ?>
+    <article class="twitter" title="twitter" class="twitter">
+        <i class="fa fa-github"></i>
+        <?php if ($services->isAuthenticated('Twitter')) { ?>
+            <p>Authenticated</p>
+        <?php } else { ?>
+            <p>Request token</p>
+        <?php } ?>
+    </article>
+</a>
