@@ -1,55 +1,33 @@
-<h1>Heading 1</h1>
-<h2>/ Heading 2</h2>
+<h1><?php echo $data['service']; ?></h1>
+<h2>/ <?php echo $data['section']; ?></h2>
 <div class="result">
     <table>
         <thead>
             <tr>
                 <th class="request">&nbsp;</th>
-                <th class="endpoint">Endpoint</th>
                 <th class="method">Method</th>
+                <th class="endpoint">Endpoint</th>
                 <th class="lib-call">Lib API call</th>
                 <th class="docs">Docs</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="request"><a href="/twitter/help/getConfiguration">Request</a></td>
-                <td class="endpoint">help/configuration</td>
-                <td class="method">GET</td>
-                <td class="lib-call">PHPoAuthImpl\Service\Twitter\Help::getConfiguration()</th>
-                <td class="docs"><a href="https://dev.twitter.com/docs/api/1.1/get/help/configuration" target="_blank">docs</a></th>
-            </tr>
-            <tr>
-                <td class="request"><a href="/twitter/help/getLanguages">Request</a></td>
-                <td class="endpoint">help/languages</td>
-                <td class="method">GET</td>
-                <td class="lib-call">PHPoAuthImpl\Service\Twitter\Help::getLanguages()</th>
-                <td class="docs"><a href="https://dev.twitter.com/docs/api/1.1/get/help/languages" target="_blank">docs</a></th>
-            </tr>
-            <tr>
-                <td class="request"><a href="/twitter/help/getPrivacy">Request</a></td>
-                <td class="endpoint">help/privacy</td>
-                <td class="method">GET</td>
-                <td class="lib-call">PHPoAuthImpl\Service\Twitter\Help::getPrivacy()</th>
-                <td class="docs"><a href="https://dev.twitter.com/docs/api/1.1/get/help/privacy" target="_blank">docs</a></th>
-            </tr>
-            <tr>
-                <td class="request"><a href="/twitter/help/getTos">Request</a></td>
-                <td class="endpoint">help/tos</td>
-                <td class="method">GET</td>
-                <td class="lib-call">PHPoAuthImpl\Service\Twitter\Help::getTos()</th>
-                <td class="docs"><a href="https://dev.twitter.com/docs/api/1.1/get/help/tos" target="_blank">docs</a></th>
-            </tr>
-            <tr>
-                <td class="request"><a href="/twitter/help/getRateLimitStatus">Request</a></td>
-                <td class="endpoint">help/rate_limit_status</td>
-                <td class="method">GET</td>
-                <td class="lib-call">PHPoAuthImpl\Service\Twitter\Help::getRateLimitStatus([<span class="type">array</span> $resources <span class="default">= array()</span>])</th>
-                <td class="docs"><a href="https://dev.twitter.com/docs/api/1.1/get/application/rate_limit_status" target="_blank">docs</a></th>
-            </tr>
+            <?php foreach ($data['requests'] as $request) { ?>
+                <tr>
+                    <td class="request"><a href="<?php echo $request['uri']; ?>">Request</a></td>
+                    <td class="method"><?php echo $request['method']; ?></td>
+                    <td class="endpoint"><?php echo $request['endpoint']; ?></td>
+                    <td class="lib-call"><?php echo $request['libCall']; ?></th>
+                    <td class="docs"><a href="<?php echo $request['docs']; ?>" target="_blank">docs</a></th>
+                </tr>
+            <?php } ?>
         </tbody>
     </table>
-    <div class="raw">
-        <?php echo json_encode($result); ?>
+    <div class="<?php echo $data['resultType']; ?>">
+        <?php if ($data['resultType'] === 'raw') { ?>
+            <?php echo json_encode($result); ?>
+        <?php } else { ?>
+<pre><?php echo $dump->parse($result); ?></pre>
+        <?php } ?>
     </div>
 </div>

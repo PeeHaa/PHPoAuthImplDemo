@@ -211,7 +211,7 @@ div.result table {
     margin-bottom: 15px;
 }
 
-div.result .raw {
+div.result .raw, div.result .parsed {
     margin-left: 0;
     margin-right: 0;
     border-width: 1px;

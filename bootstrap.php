@@ -5,6 +5,7 @@ namespace PHPoAuthImplDemo;
 use PHPoAuthImpl\Psr0\Autoloader;
 use PHPoAuthImplDemo\Network\Http\Request;
 use PHPoAuthImplDemo\Storage\ImmutableArray;
+use PHPoAuthImplDemo\Presentation\Dump;
 use PHPoAuthImpl\Service\Collection;
 
 /**
@@ -36,6 +37,28 @@ $request = new Request(
 );
 
 /**
+ * Directory traversal prevention
+ */
+function is_path_safe($basepath, $userpath)
+{
+    $basepath = realpath($basepath);
+    $userpath = $basepath . $userpath;
+
+    $realUserPath = realpath($userpath);
+
+    if ($realUserPath === false || strpos($realUserPath, $basepath) !== 0) {
+        return false;
+    }
+
+    return true;
+}
+
+/**
+ * Setup pretty dump object
+ */
+$dump = new Dump();
+
+/**
  * Initialize the oauth services
  */
 $services = new Collection;
@@ -43,7 +66,7 @@ $services = new Collection;
 $services->add('Twitter', $credentials['twitter']['key'], $credentials['twitter']['secret']);
 
 /**
- * Setup routing and content template
+ * Setup routing and content templates
  */
 ob_start();
 
@@ -65,7 +88,19 @@ if ($request->getPath() === '/') {
 } elseif (preg_match('#^/([^\/]+)/(.*)$#', $request->getPath()) === 1) {
     $result = $services->request($request->pathIterator());
 
-    require __DIR__ . '/templates/result.phtml';
+    $parts = [];
+
+    foreach ($request->pathIterator() as $part) {
+        $parts[] = $part;
+    }
+
+    array_pop($parts);
+
+    if (is_path_safe(__DIR__ . '/templates/service', '/' . implode('/', $parts) . '.phtml')) {
+        require __DIR__ . '/templates/service' . '/' . implode('/', $parts) . '.phtml';
+    } else {
+        require __DIR__ . '/templates/not-found.phtml';
+    }
 } else {
     require __DIR__ . '/templates/not-found.phtml';
 }

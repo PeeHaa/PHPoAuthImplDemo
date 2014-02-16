@@ -1,0 +1,31 @@
+<?php
+$data = [
+    'resultType' => 'parsed',
+    'service'    => 'Twitter',
+    'section'    => 'Help',
+    'requests'   => [
+        [
+            'uri'      => '/twitter/help/configuration/getCharactersPreservedPerMedia',
+            'method'   => 'GET',
+            'endpoint' => 'help/configuration',
+            'libCall'  => '<span class="type">int</span> PHPoAuthImpl\Service\Twitter\Help\Configuration::getCharactersPreservedPerMedia()',
+            'docs'     => 'https://dev.twitter.com/docs/api/1.1/get/help/configuration',
+        ],
+        [
+            'uri'      => '/twitter/help/configuration/getMaxMediaPerUpload',
+            'method'   => 'GET',
+            'endpoint' => 'help/configuration',
+            'libCall'  => '<span class="type">int</span> PHPoAuthImpl\Service\Twitter\Help\Configuration::getMaxMediaPerUpload()',
+            'docs'     => 'https://dev.twitter.com/docs/api/1.1/get/help/configuration',
+        ],
+        [
+            'uri'      => '/twitter/help/configuration/getNonUsernamePaths',
+            'method'   => 'GET',
+            'endpoint' => 'help/configuration',
+            'libCall'  => '<span class="type">array</span> PHPoAuthImpl\Service\Twitter\Help\Configuration::getNonUsernamePaths()',
+            'docs'     => 'https://dev.twitter.com/docs/api/1.1/get/help/configuration',
+        ],
+    ],
+];
+
+require __DIR__ . '/../../../result.phtml';
