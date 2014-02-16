@@ -1,50 +1,48 @@
-<h1>Twitter</h1>
-<h2 id="help">/ Help</h2>
-<table>
-    <thead>
-        <tr>
-            <th class="request">&nbsp;</th>
-            <th class="method">Method</th>
-            <th class="endpoint">Endpoint</th>
-            <th class="lib-call">Lib API call</th>
-            <th class="docs">Docs</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="request"><a href="/twitter/help/getConfiguration">Request</a></td>
-            <td class="method">GET</td>
-            <td class="endpoint">help/configuration</td>
-            <td class="lib-call">PHPoAuthImpl\Service\Twitter\Help::getConfiguration()</th>
-            <td class="docs"><a href="https://dev.twitter.com/docs/api/1.1/get/help/configuration" target="_blank">docs</a></th>
-        </tr>
-        <tr>
-            <td class="request"><a href="/twitter/help/getLanguages">Request</a></td>
-            <td class="method">GET</td>
-            <td class="endpoint">help/languages</td>
-            <td class="lib-call">PHPoAuthImpl\Service\Twitter\Help::getLanguages()</th>
-            <td class="docs"><a href="https://dev.twitter.com/docs/api/1.1/get/help/languages" target="_blank">docs</a></th>
-        </tr>
-        <tr>
-            <td class="request"><a href="/twitter/help/getPrivacy">Request</a></td>
-            <td class="method">GET</td>
-            <td class="endpoint">help/privacy</td>
-            <td class="lib-call">PHPoAuthImpl\Service\Twitter\Help::getPrivacy()</th>
-            <td class="docs"><a href="https://dev.twitter.com/docs/api/1.1/get/help/privacy" target="_blank">docs</a></th>
-        </tr>
-        <tr>
-            <td class="request"><a href="/twitter/help/getTos">Request</a></td>
-            <td class="method">GET</td>
-            <td class="endpoint">help/tos</td>
-            <td class="lib-call">PHPoAuthImpl\Service\Twitter\Help::getTos()</th>
-            <td class="docs"><a href="https://dev.twitter.com/docs/api/1.1/get/help/tos" target="_blank">docs</a></th>
-        </tr>
-        <tr>
-            <td class="request"><a href="/twitter/help/getRateLimitStatus">Request</a></td>
-            <td class="method">GET</td>
-            <td class="endpoint">help/rate_limit_status</td>
-            <td class="lib-call">PHPoAuthImpl\Service\Twitter\Help::getRateLimitStatus([<span class="type">array</span> $resources <span class="default">= array()</span>])</th>
-            <td class="docs"><a href="https://dev.twitter.com/docs/api/1.1/get/application/rate_limit_status" target="_blank">docs</a></th>
-        </tr>
-    </tbody>
-</table>
+<?php
+$data = [
+    'service'  => 'Twitter',
+    'endpoints' => [
+        [
+            'section' => 'Help',
+            'requests' => [
+                [
+                    'uri'      => '/twitter/help/getConfiguration',
+                    'method'   => 'GET',
+                    'endpoint' => 'help/configuration',
+                    'libCall'  => 'PHPoAuthImpl\Service\Twitter\Help::getConfiguration()',
+                    'docs'     => 'https://dev.twitter.com/docs/api/1.1/get/help/configuration',
+                ],
+                [
+                    'uri'      => '/twitter/help/getLanguages',
+                    'method'   => 'GET',
+                    'endpoint' => 'help/languages',
+                    'libCall'  => 'PHPoAuthImpl\Service\Twitter\Help::getLanguages()',
+                    'docs'     => 'https://dev.twitter.com/docs/api/1.1/get/help/languages',
+                ],
+                [
+                    'uri'      => '/twitter/help/getPrivacy',
+                    'method'   => 'GET',
+                    'endpoint' => 'help/privacy',
+                    'libCall'  => 'PHPoAuthImpl\Service\Twitter\Help::getPrivacy()',
+                    'docs'     => 'https://dev.twitter.com/docs/api/1.1/get/help/privacy',
+                ],
+                [
+                    'uri'      => '/twitter/help/getTos',
+                    'method'   => 'GET',
+                    'endpoint' => 'help/tos',
+                    'libCall'  => 'PHPoAuthImpl\Service\Twitter\Help::getTos()',
+                    'docs'     => 'https://dev.twitter.com/docs/api/1.1/get/help/tos',
+                ],
+                [
+                    'uri'      => '/twitter/help/getRateLimitStatus',
+                    'method'   => 'GET',
+                    'endpoint' => 'help/rate_limit_status',
+                    'libCall'  => 'PHPoAuthImpl\Service\Twitter\Help::getRateLimitStatus([<span class="type">array</span> $resources <span class="default">= array()</span>])',
+                    'docs'     => 'https://dev.twitter.com/docs/api/1.1/get/help/rate_limit_status',
+                ],
+            ],
+        ],
+    ],
+];
+
+require __DIR__ . '/../endpoints.phtml';

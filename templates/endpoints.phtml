@@ -1,0 +1,27 @@
+<?php foreach ($data['endpoints'] as $endpoint) { ?>
+    <h1><?php echo $data['service']; ?></h1>
+    <h2 id="help">/ <?php echo $endpoint['section']; ?></h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th class="request">&nbsp;</th>
+                <th class="method">Method</th>
+                <th class="endpoint">Endpoint</th>
+                <th class="lib-call">Lib API call</th>
+                <th class="docs">Docs</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($endpoint['requests'] as $request) { ?>
+                <tr>
+                    <td class="request"><a href="<?php echo $request['uri']; ?>">Request</a></td>
+                    <td class="method"><?php echo $request['method']; ?></td>
+                    <td class="endpoint"><?php echo $request['endpoint']; ?></td>
+                    <td class="lib-call"><?php echo $request['libCall']; ?></th>
+                    <td class="docs"><a href="<?php echo $request['docs']; ?>" target="_blank">docs</a></th>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+<?php } ?>
