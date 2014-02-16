@@ -162,6 +162,23 @@ table .method {
     width: 63px;
 }
 
+table .endpoint {
+    width: 250px;
+}
+
+td.lib-call {
+    color: #00a8ff;
+    font-family: monospace;
+}
+
+td.lib-call .type {
+    color: #3d7c23;
+}
+
+td.lib-call .default {
+    color: #ec5a5a;
+}
+
 table .docs {
     width: 41px;
 }
