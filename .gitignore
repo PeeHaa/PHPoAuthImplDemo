@@ -1,4 +1,4 @@
 vendor
 init.production.php
 init.development.php
-init.credentials.php
+credentials.php
