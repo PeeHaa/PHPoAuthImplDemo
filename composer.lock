@@ -70,16 +70,16 @@
         },
         {
             "name": "peehaa/oauth",
-            "version": "v0.0.3",
+            "version": "v0.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PeeHaa/PHPoAuthImpl.git",
-                "reference": "2fbf05fa17522cd0c6b84f6d2f62972dc4d67686"
+                "reference": "bc332838f3f19ac88a308bad5994785101aabd8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PeeHaa/PHPoAuthImpl/zipball/2fbf05fa17522cd0c6b84f6d2f62972dc4d67686",
-                "reference": "2fbf05fa17522cd0c6b84f6d2f62972dc4d67686",
+                "url": "https://api.github.com/repos/PeeHaa/PHPoAuthImpl/zipball/bc332838f3f19ac88a308bad5994785101aabd8e",
+                "reference": "bc332838f3f19ac88a308bad5994785101aabd8e",
                 "shasum": ""
             },
             "require": {
@@ -120,7 +120,7 @@
                 "oauth",
                 "security"
             ],
-            "time": "2014-02-15 13:42:45"
+            "time": "2014-02-16 13:39:06"
         }
     ],
     "packages-dev": [
