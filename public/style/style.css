@@ -63,7 +63,19 @@ body {
 }
 
 header {
-    padding: 1em;
+    padding: 10px 1em;
+    background: #428bca;
+}
+
+header h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 0;
+    color: white;
+}
+
+header h1 a {
+    text-decoration: none;
+    color: white;
 }
 
 #content {
@@ -81,8 +93,17 @@ footer ul {
     text-align: center;
 }
 
+#content h1 {
+    display: inline-block;
+}
+
+#content h2 {
+    display: inline-block;
+}
+
 a.service {
     text-decoration: none;
+    display: inline-block;
 }
 
 article.twitter {
